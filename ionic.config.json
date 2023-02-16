@@ -1,0 +1,7 @@
+{
+  "name": "app-prono",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
