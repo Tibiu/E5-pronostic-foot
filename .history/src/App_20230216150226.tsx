@@ -72,7 +72,7 @@ const App: React.FC = () => (
             <IonIcon icon={bookmark} />
             <IonLabel>Pronostiques</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="login" href="/login">
+          <IonTabButton tab="profile" href="/profile">
             <IonIcon icon={bookmark} />
             <IonLabel>Profile</IonLabel>
           </IonTabButton>

@@ -9,7 +9,7 @@ import {
   import axios from "axios";
   import { IonGrid, IonRow, IonCol } from "@ionic/react";
   import { personCircle } from "ionicons/icons";
-
+  import GeolocationButton from "../components/GeoLocationButton";
   //import { useHistory } from "react-router-dom";
   import {
     IonItem,
@@ -28,8 +28,8 @@ import {
   const Login: React.FC = () => {
     //const history = useHistory();
     //const [email, setEmail] = useState<string>("eve.holt@reqres.in");
-    const [name, setName] = useState<string>("Test");
-    const [password, setPassword] = useState<string>("123456789");
+    const [name, setName] = useState<string>("maik.rengsberger");
+    const [password, setPassword] = useState<string>("08004unfall");
     //const [password, setPassword] = useState<string>("cityslicka");
     const [iserror, setIserror] = useState<boolean>(false);
     const [message, setMessage] = useState<string>("");
@@ -165,6 +165,9 @@ import {
                 <p style={{ fontSize: "medium" }}></p>
               </IonCol>
             </IonRow>
+            <div className="container">
+              <GeolocationButton />
+            </div>
           </IonGrid>
         </IonContent>
       </IonPage>

@@ -10,12 +10,11 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { football, bookmark, trophy} from 'ionicons/icons';
+import { football, bookmark, trophy, person} from 'ionicons/icons';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
 import Login from './pages/Login';
-import Profile from './pages/Profile';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -73,8 +72,8 @@ const App: React.FC = () => (
             <IonLabel>Pronostiques</IonLabel>
           </IonTabButton>
           <IonTabButton tab="login" href="/login">
-            <IonIcon icon={bookmark} />
-            <IonLabel>Profile</IonLabel>
+            <IonIcon icon={person} />
+            <IonLabel>Profil</IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>
