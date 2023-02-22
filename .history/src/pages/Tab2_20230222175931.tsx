@@ -100,8 +100,8 @@ const Home: React.FC = () => {
           <IonInput value={score} onIonChange={e => setScore(e.detail.value!)} />
         </IonItem>
 
-        <IonButton color="success" onClick={handleSaveMatch}>Enregistrer</IonButton>
-        <IonButton color="danger"onClick={() => setShowModal(false)}>Annuler</IonButton>
+        <IonButton onClick={handleSaveMatch}>Enregistrer</IonButton>
+        <IonButton onClick={() => setShowModal(false)}>Annuler</IonButton>
 
       </IonModal>
     </IonContent>

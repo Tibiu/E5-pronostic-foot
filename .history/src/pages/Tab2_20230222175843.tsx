@@ -1,7 +1,6 @@
 import { IonButton, IonContent, IonHeader, IonInput, IonItem, IonLabel, IonList, IonModal, IonText, IonTitle, IonToolbar } from '@ionic/react';
 import React, { useState } from 'react';
 
-//Information des matchs
 type Match = {
   id: number;
   homeTeam: string;
@@ -100,8 +99,8 @@ const Home: React.FC = () => {
           <IonInput value={score} onIonChange={e => setScore(e.detail.value!)} />
         </IonItem>
 
-        <IonButton color="success" onClick={handleSaveMatch}>Enregistrer</IonButton>
-        <IonButton color="danger"onClick={() => setShowModal(false)}>Annuler</IonButton>
+        <IonButton onClick={handleSaveMatch}>Enregistrer</IonButton>
+        <IonButton onClick={() => setShowModal(false)}>Annuler</IonButton>
 
       </IonModal>
     </IonContent>

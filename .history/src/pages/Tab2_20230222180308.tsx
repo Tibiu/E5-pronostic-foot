@@ -101,7 +101,7 @@ const Home: React.FC = () => {
         </IonItem>
 
         <IonButton color="success" onClick={handleSaveMatch}>Enregistrer</IonButton>
-        <IonButton color="danger"onClick={() => setShowModal(false)}>Annuler</IonButton>
+        <IonButton onClick={() => setShowModal(false)}>Annuler</IonButton>
 
       </IonModal>
     </IonContent>
