@@ -11,10 +11,11 @@ import {
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { football, bookmark, trophy} from 'ionicons/icons';
-import Tab1 from './pages/Tournois';
-import Tab2 from './pages/Matchs';
+import Tab1 from './pages/Tab1';
+import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
 import Login from './pages/Login';
+import Profile from './pages/Profile';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -42,28 +43,28 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-          <Route exact path="/tournois">
+          <Route exact path="/tab1">
             <Tab1 />
           </Route>
-          <Route exact path="/matchs">
+          <Route exact path="/tab2">
             <Tab2 />
           </Route>
-          <Route exact path="/tab3">
+          <Route path="/tab3">
             <Tab3 />
           </Route>
-          <Route exact path="/login">
+          <Route path="/login">
             <Login />
           </Route>
           <Route exact path="/">
-            <Redirect to="/tournois" />
+            <Redirect to="/tab1" />
           </Route>
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
-          <IonTabButton tab="tournois" href="/tournois">
+          <IonTabButton tab="tab1" href="/tab1">
             <IonIcon icon={trophy} />
             <IonLabel>Tournois</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="matchs" href="/matchs">
+          <IonTabButton tab="tab2" href="/tab2">
             <IonIcon icon={football} />
             <IonLabel>Matchs</IonLabel>
           </IonTabButton>

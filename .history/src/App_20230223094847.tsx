@@ -42,7 +42,7 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-          <Route exact path="/tournois">
+          <Route exact path="/tab1">
             <Tab1 />
           </Route>
           <Route exact path="/matchs">
@@ -55,7 +55,7 @@ const App: React.FC = () => (
             <Login />
           </Route>
           <Route exact path="/">
-            <Redirect to="/tournois" />
+            <Redirect to="/tab1" />
           </Route>
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
