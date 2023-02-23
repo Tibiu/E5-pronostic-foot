@@ -114,7 +114,7 @@ const Tab2: React.FC = () => {
             <IonLabel>
 
               <IonText>
-                {match.homeTeam} vs {match.awayTeam} - Score : {match.score} / {predictions.filter(prediction => prediction.matchId === match.id).length} pronostics
+                {match.homeTeam} vs {match.awayTeam} - Score : {match.score} - {predictions.filter(prediction => prediction.matchId === match.id).length} pronostics
               </IonText>
 
             </IonLabel>

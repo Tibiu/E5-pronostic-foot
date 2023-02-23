@@ -90,6 +90,9 @@ const Tab2: React.FC = () => {
   const handleDeletePrediction = useCallback((id: number) => {
     setPredictions(predictions => predictions.filter(prediction => prediction.id !== id));
   }, []);
+  const getPredictionCount = (match: Match) => {
+    return predictions.filter(prediction => prediction.matchId === match.id).length;
+  };
   
   const handleViewPredictions = useCallback((match: Match) => {
     const matchPredictions = predictions.filter(prediction => prediction.matchId === match.id);
@@ -114,7 +117,7 @@ const Tab2: React.FC = () => {
             <IonLabel>
 
               <IonText>
-                {match.homeTeam} vs {match.awayTeam} - Score : {match.score} / {predictions.filter(prediction => prediction.matchId === match.id).length} pronostics
+                {match.homeTeam} vs {match.awayTeam} - Score : {match.score} - {predictions.filter(prediction => prediction.matchId === match.id).length} pronostics
               </IonText>
 
             </IonLabel>

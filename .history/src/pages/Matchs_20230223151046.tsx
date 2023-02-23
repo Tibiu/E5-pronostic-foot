@@ -1,6 +1,6 @@
 import { IonButton, IonContent, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonList, IonModal, IonText, IonTitle, IonToolbar } from '@ionic/react';
 import React, { useState, useCallback } from 'react';
-import { pencilOutline, trashOutline, addOutline, barChart, eye} from 'ionicons/icons';
+import { pencilOutline, trashOutline, addOutline,barChart} from 'ionicons/icons';
 
 interface Match {
   id: number;
@@ -90,6 +90,9 @@ const Tab2: React.FC = () => {
   const handleDeletePrediction = useCallback((id: number) => {
     setPredictions(predictions => predictions.filter(prediction => prediction.id !== id));
   }, []);
+  const getPredictionCount = (match: Match) => {
+    return predictions.filter(prediction => prediction.matchId === match.id).length;
+  };
   
   const handleViewPredictions = useCallback((match: Match) => {
     const matchPredictions = predictions.filter(prediction => prediction.matchId === match.id);
@@ -114,7 +117,7 @@ const Tab2: React.FC = () => {
             <IonLabel>
 
               <IonText>
-                {match.homeTeam} vs {match.awayTeam} - Score : {match.score} / {predictions.filter(prediction => prediction.matchId === match.id).length} pronostics
+                {match.homeTeam} vs {match.awayTeam} - Score : {match.score} - {predictions.filter(prediction => prediction.matchId === match.id).length} pronostics
               </IonText>
 
             </IonLabel>
@@ -132,8 +135,8 @@ const Tab2: React.FC = () => {
             </IonButton>
 
             <IonButton onClick={() => handleViewPredictions(match)} fill="clear" slot="end" icon-only>
-              <IonIcon icon={eye} />
-            </IonButton>
+  <IonIcon icon={barChart} />
+</IonButton>
 
           </IonItem>
         ))}

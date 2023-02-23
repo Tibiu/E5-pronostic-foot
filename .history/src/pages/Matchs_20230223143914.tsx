@@ -1,6 +1,6 @@
 import { IonButton, IonContent, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonList, IonModal, IonText, IonTitle, IonToolbar } from '@ionic/react';
 import React, { useState, useCallback } from 'react';
-import { pencilOutline, trashOutline, addOutline, barChart, eye} from 'ionicons/icons';
+import { pencilOutline, trashOutline, addOutline } from 'ionicons/icons';
 
 interface Match {
   id: number;
@@ -10,7 +10,6 @@ interface Match {
 }
 
 interface Prediction {
-  id: number;
   matchId: number;
   user: string;
   score: string;
@@ -77,26 +76,18 @@ const Tab2: React.FC = () => {
   }, []);
   const handleSavePrediction = useCallback(() => {
     if (currentMatch) {
-      const newPrediction = { id: predictions.length + 1,matchId: currentMatch.id, user: 'user1', score };
+      const newPrediction = { matchId: currentMatch.id, user: 'user1', score };
       setPredictions(predictions => [...predictions, newPrediction]);
-    
     }
     setShowModal(false);
     setScore(initialMatchState.score);
     setCurrentMatch(undefined);
   }, [currentMatch, score, initialMatchState]);
-
   
   const handleDeletePrediction = useCallback((id: number) => {
     setPredictions(predictions => predictions.filter(prediction => prediction.id !== id));
   }, []);
-  
-  const handleViewPredictions = useCallback((match: Match) => {
-    const matchPredictions = predictions.filter(prediction => prediction.matchId === match.id);
-    const predictionsText = matchPredictions.map(prediction => `${prediction.user} : ${prediction.score}`).join('\n');
-    alert(`Liste des pronostics pour le match ${match.homeTeam} vs ${match.awayTeam} :\n${predictionsText}`);
-  }, [predictions]);
-  
+ 
   return (
     <IonContent>
       <IonHeader>
@@ -114,9 +105,8 @@ const Tab2: React.FC = () => {
             <IonLabel>
 
               <IonText>
-                {match.homeTeam} vs {match.awayTeam} - Score : {match.score} / {predictions.filter(prediction => prediction.matchId === match.id).length} pronostics
+                {match.homeTeam} vs {match.awayTeam} - Score : {match.score} - {predictions.filter(prediction => prediction.matchId === match.id).length} pronostics
               </IonText>
-
             </IonLabel>
 
             <IonButton color="warning" onClick={() => handleEditMatch(match)} fill="clear" slot="end" icon-only>
@@ -128,11 +118,7 @@ const Tab2: React.FC = () => {
             </IonButton>
 
             <IonButton onClick={() => handleAddPrediction(match)} fill="clear" slot="end" icon-only>
-              <IonIcon icon={barChart} />
-            </IonButton>
-
-            <IonButton onClick={() => handleViewPredictions(match)} fill="clear" slot="end" icon-only>
-              <IonIcon icon={eye} />
+              <IonIcon icon={addOutline} />
             </IonButton>
 
           </IonItem>

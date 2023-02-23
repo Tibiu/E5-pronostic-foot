@@ -13,6 +13,7 @@ import { IonReactRouter } from '@ionic/react-router';
 import { football, bookmark, trophy} from 'ionicons/icons';
 import Tab1 from './pages/Tournois';
 import Tab2 from './pages/Matchs';
+import Tab3 from './pages/Tab3';
 import Login from './pages/Login';
 
 /* Core CSS required for Ionic components to work properly */
@@ -47,8 +48,17 @@ const App: React.FC = () => (
           <Route exact path="/matchs">
             <Tab2 />
           </Route>
+          <Route exact path="/tab3">
+            <Tab3 />
+          </Route>
           <Route exact path="/login">
-            <Login />
+            <Login matches={[]} onAdd={function (match: { id: number; homeTeam: string; awayTeam: string; prediction: string; }): void {
+              throw new Error('Function not implemented.');
+            } } onDelete={function (id: number): void {
+              throw new Error('Function not implemented.');
+            } } onUpdate={function (id: number, prediction: string): void {
+              throw new Error('Function not implemented.');
+            } } />
           </Route>
           <Route exact path="/">
             <Redirect to="/tournois" />
@@ -62,6 +72,10 @@ const App: React.FC = () => (
           <IonTabButton tab="matchs" href="/matchs">
             <IonIcon icon={football} />
             <IonLabel>Matchs</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="tab3" href="/tab3">
+            <IonIcon icon={bookmark} />
+            <IonLabel>Pronostiques</IonLabel>
           </IonTabButton>
           <IonTabButton tab="login" href="/login">
             <IonIcon icon={bookmark} />
